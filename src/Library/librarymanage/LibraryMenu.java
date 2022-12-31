@@ -15,6 +15,7 @@ public class LibraryMenu extends JFrame {
         status.addItem(null);
         status.addItem("录入图书信息");
         status.addItem("操作图书");
+        status.addItem("登录");
         status.addItem("借书");
         status.addItem("还书");
         status.addItem("将图书信息写入文件中");
@@ -34,7 +35,8 @@ public class LibraryMenu extends JFrame {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
                     case "录入图书信息":new AddBook();break;
-                    case "操作图书":break;
+                    case "操作图书":new operateBook();break;
+                    case "登录":new LoginFrm();break;
                     case "借书":break;
                     case "还书":break;
                     case "将图书信息写入文件中":break;

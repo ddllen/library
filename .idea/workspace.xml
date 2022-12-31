@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="first" />
+    <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="first">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jdbc/mysql-connector-java-8.0.30.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/VipDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/DbUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,10 +59,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "last_opened_file_path": "D:/library/jdbc/mysql-connector-java-8.0.30.jar",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="应用程序.Run">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\library\jdbc" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.LoginFrm">
     <configuration name="AddBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Library.librarymanage.AddBook" />
       <module name="library" />
@@ -59,12 +85,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibraryMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Library.librarymanage.LibraryMenu" />
+    <configuration name="DbUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.DbUtil" />
       <module name="library" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Library.librarymanage.*" />
+          <option name="PATTERN" value="util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,12 +98,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Library.MainMenu" />
+    <configuration name="LoginFrm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Library.librarymanage.LoginFrm" />
       <module name="library" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Library.*" />
+          <option name="PATTERN" value="Library.librarymanage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +124,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VipMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Library.vipmanage.VipMenu" />
+    <configuration name="operateBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Library.librarymanage.operateBook" />
       <module name="library" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Library.vipmanage.*" />
+          <option name="PATTERN" value="Library.librarymanage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Run" />
+        <item itemvalue="应用程序.LoginFrm" />
         <item itemvalue="应用程序.AddBook" />
-        <item itemvalue="应用程序.VipMenu" />
-        <item itemvalue="应用程序.MainMenu" />
-        <item itemvalue="应用程序.LibraryMenu" />
+        <item itemvalue="应用程序.DbUtil" />
+        <item itemvalue="应用程序.Run" />
+        <item itemvalue="应用程序.operateBook" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672451705841</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first">
+      <created>1672451836975</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672451836975</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

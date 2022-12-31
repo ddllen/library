@@ -11,6 +11,7 @@ import java.util.Objects;
 public class operateBook extends JFrame {
     public operateBook(){
         Container container = this.getContentPane();
+        container.setLayout(new FlowLayout());
         JComboBox status=new JComboBox();
         status.addItem(null);
         status.addItem("添加图书");
@@ -25,7 +26,7 @@ public class operateBook extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
-
+                    case "添加图书":new AddBook();
                 }
             }
         });
@@ -37,7 +38,16 @@ public class operateBook extends JFrame {
                 dispose();
             }
         });
+        container.add(status);
+        container.add(jButton);
+        container.add(jButton1);
+        this.setLocation(1000,500);
+        this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new operateBook();
     }
 }

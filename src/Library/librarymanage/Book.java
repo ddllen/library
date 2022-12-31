@@ -1,19 +1,19 @@
 package Library.librarymanage;
 public class Book {
-    private String name; //书名
-    private String author; //作者
-    public String num; //编号
+    private String name;
+    private String author;
+    public int num;
+    private String press;
+    private boolean state=true;
 
-    private String Press; //出版社
-    private boolean state=true; //状态  true-未借出  false-已借出
-
-    //通过构造函数给定书的属性
-
-    public Book(String name, String author, String num, String Press) {
+    public Book(String name, String author, String press) {
         this.name = name;
         this.author = author;
-        this.num = num;
-        this.Press = Press;
+        this.press = press;
+    }
+
+    public Book() {
+
     }
 
     public String getName() {
@@ -24,14 +24,6 @@ public class Book {
         this.name = name;
     }
 
-    public String getNum() {
-        return num;
-    }
-
-    public void setNum(String num) {
-        this.num = num;
-    }
-
     public String getAuthor() {
         return author;
     }
@@ -40,15 +32,23 @@ public class Book {
         this.author = author;
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     public String getPress() {
-        return Press;
+        return press;
     }
 
     public void setPress(String press) {
-        Press = press;
+        this.press = press;
     }
 
-    public boolean getState() {
+    public boolean isState() {
         return state;
     }
 
