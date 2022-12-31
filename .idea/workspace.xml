@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="first">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jdbc/mysql-connector-java-8.0.30.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/VipDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/DbUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/StringUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" afterDir="false" />
-    </list>
+    <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="null" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672451836975</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="null">
+      <created>1672476090164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672476090164</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +176,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="null" />
+    <option name="LAST_COMMIT_MESSAGE" value="null" />
   </component>
 </project>
