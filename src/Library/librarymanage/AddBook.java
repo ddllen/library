@@ -1,6 +1,5 @@
 package Library.librarymanage;
 
-import Library.Run;
 import dao.BookDao;
 import util.DbUtil;
 import util.StringUtil;
@@ -9,15 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 public class AddBook extends JFrame {
     DbUtil dbUtil=new DbUtil();
     BookDao bd=new BookDao();
-    Book book=new Book();
     public AddBook(){
         Container container = this.getContentPane();
         this.setLayout(new FlowLayout());
-        setBounds(700,500,700,200);
+        setBounds(700,500,550,200);
         JPanel jPanel = new JPanel();jPanel.setLayout(new FlowLayout());
         JPanel jPanel1 = new JPanel();jPanel1.setLayout(new FlowLayout());
         JPanel jPanel2 = new JPanel();jPanel2.setLayout(new FlowLayout());
@@ -46,15 +45,36 @@ public class AddBook extends JFrame {
         jb1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(StringUtil.isEmpty(jTextField1.getText())||StringUtil.isEmpty(jTextField2.getText())||StringUtil.isEmpty(jTextField3.getText())){
+                String name = jTextField1.getText();
+                String author = jTextField2.getText();
+                String press = jTextField3.getText();
+                if(StringUtil.isEmpty(name)||StringUtil.isEmpty(author)||StringUtil.isEmpty(press)){
                     JOptionPane.showMessageDialog(null,"内容不能为空");
                 }
                 else {
-                    Book book = new Book(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
+                    Book book = new Book(name,author,press);
                     jTextField1.setText(null);
                     jTextField2.setText(null);
                     jTextField3.setText(null);
-                    JOptionPane.showMessageDialog(null,"已添加");
+                    Connection con=null;
+                    try {
+                        con= dbUtil.getCon();
+                        int addNum=bd.add(con,book);
+                        if(addNum==1){
+                            JOptionPane.showMessageDialog(null,"图书添加成功");
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"图书添加失败");
+                        }
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }finally {
+                        try {
+                            dbUtil.closeCon(con);
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
                 }
             }
         });
@@ -73,5 +93,8 @@ public class AddBook extends JFrame {
                 jTextField3.setText(null);
             }
         });
+    }
+    public static void main(String[] args) {
+        new AddBook();
     }
 }

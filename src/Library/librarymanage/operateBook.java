@@ -26,7 +26,12 @@ public class operateBook extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
-                    case "添加图书":new AddBook();
+                    case "添加图书":new AddBook();break;
+                    case "删除图书":;break;
+                    case "浏览图书":;break;
+                    case "查询图书":;break;
+                    case "图书排序":;break;
+                    case "插入图书":;break;
                 }
             }
         });

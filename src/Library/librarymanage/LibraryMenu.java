@@ -13,7 +13,6 @@ public class LibraryMenu extends JFrame {
         Container container = this.getContentPane();
         JComboBox status=new JComboBox();
         status.addItem(null);
-        status.addItem("录入图书信息");
         status.addItem("操作图书");
         status.addItem("登录");
         status.addItem("借书");
@@ -34,7 +33,6 @@ public class LibraryMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
-                    case "录入图书信息":new AddBook();break;
                     case "操作图书":new operateBook();break;
                     case "登录":new LoginFrm();break;
                     case "借书":break;
