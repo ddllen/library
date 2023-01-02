@@ -11,6 +11,8 @@ import java.util.Objects;
 public class LibraryMenu extends JFrame {
     public LibraryMenu() {
         Container container = this.getContentPane();
+        JLabel jLabel = new JLabel("图书界面");
+        container.add(jLabel);
         JComboBox status=new JComboBox();
         status.addItem(null);
         status.addItem("操作图书");

@@ -1,6 +1,9 @@
-package Library.librarymanage;
+package Library.vipmanage;
 
+import Library.librarymanage.Book;
+import Library.librarymanage.LibraryMenu;
 import dao.BookDao;
+import dao.VipDao;
 import util.DbUtil;
 
 import javax.swing.*;
@@ -10,19 +13,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Objects;
 import java.util.Vector;
 
-public class BookEnquiry extends JFrame {
+public class VipEnquiry extends JFrame {
     DefaultTableModel dtm=null;
-    JTable jt=new JTable();
+    JTable jt;
     Connection ct=null;
     DbUtil dbUtil=new DbUtil();
-
-    public BookEnquiry(){
-        JLabel jLabel = new JLabel("书名");
-        JLabel jLabel1 = new JLabel("作者");
+    public VipEnquiry(){
+        JLabel jLabel = new JLabel("会员名");
+        JLabel jLabel1 = new JLabel("性别");
         JTextField jTextField = new JTextField(8);
         JTextField jTextField1 = new JTextField(8);
         JButton jButton = new JButton("返回");
@@ -30,14 +30,14 @@ public class BookEnquiry extends JFrame {
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                String bookName=jTextField.getText();
-                String author=jTextField1.getText();
-                Book book=new Book();
-                book.setName(bookName);
-                book.setAuthor(author);
-                fillTable(book);
+                String UserName=jTextField.getText();
+                String sex=jTextField1.getText();
+                Vip vip=new Vip();
+                vip.setSex(sex);
+                vip.setUserName(UserName);
+                fillTable(vip);
 
-        }
+            }
         });
         this.add(jLabel);
         this.add(jTextField);
@@ -48,19 +48,17 @@ public class BookEnquiry extends JFrame {
         DefaultTableModel model = new DefaultTableModel();
         Vector columnNames =new Vector();
         columnNames.add("编号");
-        columnNames.add("书名");
-        columnNames.add("作者");
-        columnNames.add("出版社");
-        columnNames.add("状态");
+        columnNames.add("用户名");
+        columnNames.add("性别");
         jt=new JTable(model);
         JScrollPane jsp=new JScrollPane(jt);
         Vector data=new Vector();
         model.setDataVector(data,columnNames);
-        fillTable(new Book());
+        fillTable(new Vip());
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new LibraryMenu();
+                new VipMenu();
                 dispose();
             }
         });
@@ -70,19 +68,17 @@ public class BookEnquiry extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-    private void fillTable(Book book){
+    private void fillTable(Vip vip){
         dtm= (DefaultTableModel) jt.getModel();
         dtm.setRowCount(0);
         try{
             ct= dbUtil.getCon();
-            ResultSet rs=BookDao.list(ct,book);
+            ResultSet rs= VipDao.list(ct,vip);
             while(rs.next()){
                 Vector v=new Vector();
                 v.add(rs.getString(1));
                 v.add(rs.getString(2));
-                v.add(rs.getString(3));
                 v.add(rs.getString(4));
-                v.add(rs.getString(5));
                 dtm.addRow(v);
             }
         }catch (Exception e){
@@ -96,8 +92,8 @@ public class BookEnquiry extends JFrame {
         }
 
     }
+
     public static void main(String[] args) {
-        new BookEnquiry();
+        new VipEnquiry();
     }
 }
-

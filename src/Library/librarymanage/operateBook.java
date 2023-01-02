@@ -16,8 +16,7 @@ public class operateBook extends JFrame {
         status.addItem(null);
         status.addItem("添加图书");
         status.addItem("删除图书");
-        status.addItem("浏览图书");
-        status.addItem("查询图书");
+        status.addItem("浏览图书和查询图书");
         status.addItem("图书排序");
         status.addItem("插入图书");
         JButton jButton = new JButton("确认");
@@ -28,8 +27,7 @@ public class operateBook extends JFrame {
                 switch (s){
                     case "添加图书":new AddBook();break;
                     case "删除图书":;break;
-                    case "浏览图书":;break;
-                    case "查询图书":;break;
+                    case "浏览图书和查询图书":new BookEnquiry();break;
                     case "图书排序":;break;
                     case "插入图书":;break;
                 }
@@ -50,9 +48,5 @@ public class operateBook extends JFrame {
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
-
-    public static void main(String[] args) {
-        new operateBook();
     }
 }
