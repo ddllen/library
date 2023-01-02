@@ -18,12 +18,12 @@ public class BookDao {
         return pstmt.executeUpdate();
     }
     public static ResultSet list(Connection con, Book book)throws Exception{
-        StringBuffer sb=new StringBuffer("select * from t_book ");
+        StringBuffer sb=new StringBuffer("select * from t_book");
         if(StringUtil.isNotEmpty(book.getName())){
-            sb.append(" and b.name like '%"+book.getName()+"%'");
+            sb.append(" and name like '%"+book.getName()+"%'");
         }
         if(StringUtil.isNotEmpty(book.getAuthor())){
-            sb.append(" and b.author like '%"+book.getAuthor()+"%'");
+            sb.append(" and author like '%"+book.getAuthor()+"%'");
         }
         PreparedStatement pstmt = con.prepareStatement(sb.toString().replaceFirst("and","where"));
         return pstmt.executeQuery();
