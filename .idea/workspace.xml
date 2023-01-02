@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="null">
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,18 +43,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/library/jdbc/mysql-connector-java-8.0.30.jar",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/library/jdbc/mysql-connector-java-8.0.30.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\library\jdbc" />
@@ -175,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672476261807</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="null">
+      <created>1672492775299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672492775299</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
