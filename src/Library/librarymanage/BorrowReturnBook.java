@@ -55,7 +55,6 @@ public class BorrowReturnBook extends JFrame {
         Vector data1=new Vector();
         model.setDataVector(data,columnNames);
         model1.setDataVector(data1,columnNames);
-        fillTable(new Book());
         jPanel.add(jLabel,BorderLayout.NORTH);
         jPanel.add(jsp,BorderLayout.CENTER);
         jPanel1.add(jLabel1,BorderLayout.NORTH);
@@ -185,6 +184,7 @@ public class BorrowReturnBook extends JFrame {
                 jTextField2.setText((String) jt1.getValueAt(row,2));
             }
         });
+        fillTable(new Book());
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocation(600,300);
