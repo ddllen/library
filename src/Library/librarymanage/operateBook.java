@@ -15,7 +15,7 @@ public class operateBook extends JFrame {
         JComboBox status=new JComboBox();
         status.addItem(null);
         status.addItem("添加图书");
-        status.addItem("删除图书");
+        status.addItem("删除图书和修改图书");
         status.addItem("浏览图书和查询图书");
         status.addItem("图书排序");
         status.addItem("插入图书");
@@ -26,18 +26,19 @@ public class operateBook extends JFrame {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
                     case "添加图书":new AddBook();break;
-                    case "删除图书":;break;
+                    case "删除图书和修改图书":new BookDelete();break;
                     case "浏览图书和查询图书":new BookEnquiry();break;
                     case "图书排序":;break;
                     case "插入图书":;break;
                 }
+                dispose();
             }
         });
         JButton jButton1=new JButton("返回");
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MainMenu();
+                new LibraryMenu();
                 dispose();
             }
         });

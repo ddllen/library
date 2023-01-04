@@ -28,11 +28,12 @@ public class operateVip extends JFrame {
                 String s = Objects.requireNonNull(status.getSelectedItem()).toString();
                 switch (s){
                     case "添加会员":new AddVip();break;
-                    case "删除会员":;break;
+                    case "删除会员":new VipDelete();break;
                     case "浏览会员和查询会员":new VipEnquiry();break;
                     case "会员排序":;break;
                     case "插入会员":;break;
                 }
+                dispose();
             }
         });
         JButton jButton1=new JButton("返回");

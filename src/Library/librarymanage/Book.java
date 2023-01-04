@@ -5,6 +5,19 @@ public class Book {
     public int num;
     private String press;
     private boolean state=true;
+    private String who=null;
+
+    public boolean isState() {
+        return state;
+    }
+
+    public String getWho() {
+        return who;
+    }
+
+    public void setWho(String who) {
+        this.who = who;
+    }
 
     public Book(String name, String author, String press) {
         this.name = name;

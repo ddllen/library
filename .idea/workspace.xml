@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="null">
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipDelete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/AddVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/AddVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/VipEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipEnquiry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/VipDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/VipDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +71,7 @@
       <recent name="D:\library\jdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.BookEnquiry">
+  <component name="RunManager" selected="应用程序.BorrowReturnBook">
     <configuration name="AddVip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Library.vipmanage.AddVip" />
       <module name="library" />
@@ -88,8 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookEnquiry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Library.librarymanage.BookEnquiry" />
+    <configuration name="BorrowReturnBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Library.librarymanage.BorrowReturnBook" />
       <module name="library" />
       <extension name="coverage">
         <pattern>
@@ -114,8 +124,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VipEnquiry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Library.vipmanage.VipEnquiry" />
+    <configuration name="VipDelete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Library.vipmanage.VipDelete" />
       <module name="library" />
       <extension name="coverage">
         <pattern>
@@ -129,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.BookEnquiry" />
-        <item itemvalue="应用程序.BookDelete" />
-        <item itemvalue="应用程序.AddVip" />
+        <item itemvalue="应用程序.BorrowReturnBook" />
         <item itemvalue="应用程序.Run" />
-        <item itemvalue="应用程序.VipEnquiry" />
+        <item itemvalue="应用程序.AddVip" />
+        <item itemvalue="应用程序.VipDelete" />
+        <item itemvalue="应用程序.BookDelete" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672670670956</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="null">
+      <created>1672797642036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672797642036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

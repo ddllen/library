@@ -44,4 +44,32 @@ public class VipDao {
         PreparedStatement pstmt = con.prepareStatement(sb.toString().replaceFirst("and","where"));
         return pstmt.executeQuery();
     }
+    public static int delete(Connection con, int id)throws Exception{
+        String sql="delete from t_vip where id=?";
+        String sql1="SET @auto_id = 0";
+        String sql2="UPDATE t_vip SET id = (@auto_id :=@auto_id + 1)";
+        String sql3="ALTER TABLE t_vip AUTO_INCREMENT = 1";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
+        int a=pstmt.executeUpdate();
+        con.prepareStatement(sql1).executeUpdate();
+        con.prepareStatement(sql2).executeUpdate();
+        con.prepareStatement(sql3).executeUpdate();
+        return a;
+    }
+
+    public static int update(Connection con, Vip vip)throws Exception {
+        String sql="update t_vip set password=? where password=?";
+        String sql1="SET @auto_id = 0";
+        String sql2="UPDATE t_vip SET id = (@auto_id :=@auto_id + 1)";
+        String sql3="ALTER TABLE t_vip AUTO_INCREMENT = 1";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,vip.getUserName());
+        pstmt.setString(2,vip.getPassword());
+        int a=pstmt.executeUpdate();
+        con.prepareStatement(sql1).executeUpdate();
+        con.prepareStatement(sql2).executeUpdate();
+        con.prepareStatement(sql3).executeUpdate();
+        return a;
+    }
 }

@@ -12,6 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class AddVip extends JFrame{
         DbUtil dbUtil=new DbUtil();
@@ -61,14 +63,23 @@ public class AddVip extends JFrame{
                                     jTextField3.setText(null);
                                     Connection con=null;
                                     try {
+                                            int i=0;
                                             con= dbUtil.getCon();
-                                            int addNum=vd.add(con,vip);
-                                            if(addNum==1){
-                                                    JOptionPane.showMessageDialog(null,"会员添加成功");
+                                            Statement statement=con.createStatement();
+                                            ResultSet resultset=statement.executeQuery("select * from t_vip");
+                                            while(resultset.next()){
+                                                    if(UserName.equals(resultset.getString("username"))){i=1;}
                                             }
-                                            else{
-                                                    JOptionPane.showMessageDialog(null,"会员添加失败");
+                                            if(i==0) {
+                                                    int addNum = vd.add(con, vip);
+                                                    if(addNum==1){
+                                                            JOptionPane.showMessageDialog(null,"会员添加成功");
+                                                    }
+                                                    else{
+                                                            JOptionPane.showMessageDialog(null,"会员添加失败");
+                                                    }
                                             }
+                                            else{JOptionPane.showMessageDialog(null,"用户名重复");}
                                     } catch (Exception ex) {
                                             throw new RuntimeException(ex);
                                     }finally {
@@ -84,7 +95,7 @@ public class AddVip extends JFrame{
             jb2.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                            new VipMenu();
+                            new operateVip();
                             dispose();
                     }
             });
@@ -97,8 +108,4 @@ public class AddVip extends JFrame{
                     }
             });
     }
-
-        public static void main(String[] args) {
-                new AddVip();
-        }
 }

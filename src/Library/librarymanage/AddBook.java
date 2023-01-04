@@ -81,7 +81,7 @@ public class AddBook extends JFrame {
         jb2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new LibraryMenu();
+                new operateBook();
                 dispose();
             }
         });

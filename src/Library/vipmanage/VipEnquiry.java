@@ -50,7 +50,11 @@ public class VipEnquiry extends JFrame {
         columnNames.add("编号");
         columnNames.add("用户名");
         columnNames.add("性别");
-        jt=new JTable(model);
+        jt=new JTable(model){
+            public boolean isCellEditable(int row,int column){
+                return false;
+            }
+        };
         JScrollPane jsp=new JScrollPane(jt);
         Vector data=new Vector();
         model.setDataVector(data,columnNames);
@@ -58,7 +62,7 @@ public class VipEnquiry extends JFrame {
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new VipMenu();
+                new operateVip();
                 dispose();
             }
         });
@@ -90,10 +94,5 @@ public class VipEnquiry extends JFrame {
                 e.printStackTrace();
             }
         }
-
-    }
-
-    public static void main(String[] args) {
-        new VipEnquiry();
     }
 }

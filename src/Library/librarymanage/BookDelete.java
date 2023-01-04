@@ -2,6 +2,7 @@ package Library.librarymanage;
 
 import dao.BookDao;
 import util.DbUtil;
+import util.StringUtil;
 
 import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
@@ -9,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -63,8 +66,103 @@ public class BookDelete extends JFrame {
             }
         });
         container.add(jsp);
+        JLabel jLabel1 = new JLabel("编号:");
+        JLabel jLabel2 = new JLabel("图书名称:");
+        JLabel jLabel3 = new JLabel("作者:");
+        JLabel jLabel4 = new JLabel("出版社:");
+        JTextField jTextField1 = new JTextField(16);
+        jTextField1.setEditable(false);
+        JTextField jTextField2 = new JTextField(16);
+        JTextField jTextField3 = new JTextField(16);
+        JTextField jTextField4 = new JTextField(16);
+        jt.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int row=jt.getSelectedRow();
+                jTextField1.setText((String) jt.getValueAt(row,0));
+                jTextField2.setText((String) jt.getValueAt(row,1));
+                jTextField3.setText((String) jt.getValueAt(row,2));
+                jTextField4.setText((String) jt.getValueAt(row,3));
+            }
+        });
+        JButton jButton2 = new JButton("修改");
+        jButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String num=jTextField1.getText();
+                String name=jTextField2.getText();
+                String author=jTextField3.getText();
+                String press=jTextField4.getText();
+                if(StringUtil.isEmpty(num)){
+                    JOptionPane.showMessageDialog(null,"请选择你要修改的图书");
+                }
+                Book book = new Book();
+                book.setNum(Integer.parseInt(num));
+                book.setName(name);
+                book.setAuthor(author);
+                book.setPress(press);
+                Connection con=null;
+                try{
+                    con=dbUtil.getCon();
+                    int modifyNum=BookDao.update(con,book);
+                    if(modifyNum==1){
+                        JOptionPane.showMessageDialog(null,"修改成功");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"修改失败");
+                    }
+                    fillTable(new Book());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    try {
+                        dbUtil.closeCon(con);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
+        JButton jButton3 = new JButton("删除");
+        jButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String num=jTextField1.getText();
+                String name=jTextField2.getText();
+                if(StringUtil.isEmpty(num)){
+                    JOptionPane.showMessageDialog(null,"请选择你要修改的图书");
+                }
+                Connection con=null;
+                try{
+                    con=dbUtil.getCon();
+                    int modifyNum=BookDao.delete(con,name);
+                    if(modifyNum==1){
+                        JOptionPane.showMessageDialog(null,"删除成功");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"删除失败");
+                    }
+                    fillTable(new Book());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    try {
+                        dbUtil.closeCon(con);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
+        container.add(jLabel1);container.add(jTextField1);
+        container.add(jLabel2);container.add(jTextField2);
+        container.add(jLabel3);container.add(jTextField3);
+        container.add(jLabel4);container.add(jTextField4);
+        container.add(jButton2);
+        container.add(jButton3);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.setBounds(700,500,500, 300);
+        this.setBounds(700,200,500, 600);
     }
 
     private void fillTable(Book book) {
@@ -97,9 +195,5 @@ public class BookDelete extends JFrame {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new BookDelete();
     }
 }
