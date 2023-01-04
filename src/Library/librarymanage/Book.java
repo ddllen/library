@@ -53,7 +53,7 @@ public class Book {
         this.press = press;
     }
 
-    public boolean isState() {
+    public boolean getState() {
         return state;
     }
 

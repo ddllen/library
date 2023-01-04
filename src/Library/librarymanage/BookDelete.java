@@ -3,6 +3,7 @@ package Library.librarymanage;
 import dao.BookDao;
 import util.DbUtil;
 
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -10,41 +11,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Objects;
 import java.util.Vector;
 
-public class BookEnquiry extends JFrame {
-    DefaultTableModel dtm=null;
-    JTable jt=new JTable();
-    Connection ct=null;
-    DbUtil dbUtil=new DbUtil();
+public class BookDelete extends JFrame {
+    DefaultTableModel dtm = null;
+    JTable jt = new JTable();
+    Connection ct = null;
+    DbUtil dbUtil = new DbUtil();
 
-    public BookEnquiry(){
-        JLabel jLabel = new JLabel("书名");
-        JLabel jLabel1 = new JLabel("作者");
-        JTextField jTextField = new JTextField(8);
-        JTextField jTextField1 = new JTextField(8);
-        JButton jButton = new JButton("返回");
-        JButton jButton1=new JButton("查询");
+    public BookDelete() {
+        Container container = this.getContentPane();
+        container.setLayout(new FlowLayout());
+        JLabel jLabel = new JLabel("图书名称");
+        JTextField jTextField = new JTextField(16);
+        JButton jButton = new JButton("查询");
+        JButton jButton1 = new JButton("返回");
+        container.add(jLabel);
+        container.add(jTextField);
+        container.add(jButton);
+        container.add(jButton1);
         jButton1.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent evt) {
-                String bookName=jTextField.getText();
-                String author=jTextField1.getText();
-                Book book=new Book();
-                book.setName(bookName);
-                book.setAuthor(author);
-                fillTable(book);
-
-        }
+            public void actionPerformed(ActionEvent e) {
+                new operateBook();
+                dispose();
+            }
         });
-        this.add(jLabel);
-        this.add(jTextField);
-        this.add(jLabel1);
-        this.add(jTextField1);
-        this.add(jButton1);
-        this.add(jButton);
         DefaultTableModel model = new DefaultTableModel();
         Vector columnNames =new Vector();
         columnNames.add("编号");
@@ -63,25 +55,26 @@ public class BookEnquiry extends JFrame {
         fillTable(new Book());
         jButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                new LibraryMenu();
-                dispose();
+            public void actionPerformed(ActionEvent evt) {
+                String bookName=jTextField.getText();
+                Book book=new Book();
+                book.setName(bookName);
+                fillTable(book);
             }
         });
-        this.add(jsp);
-        this.setLayout(new FlowLayout());
-        this.setBounds(700,500,500, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        container.add(jsp);
         this.setVisible(true);
+        this.setBounds(700,500,500, 300);
     }
-    private void fillTable(Book book){
-        dtm= (DefaultTableModel) jt.getModel();
+
+    private void fillTable(Book book) {
+        dtm = (DefaultTableModel) jt.getModel();
         dtm.setRowCount(0);
-        try{
-            ct= dbUtil.getCon();
-            ResultSet rs=BookDao.list(ct,book);
-            while(rs.next()){
-                Vector v=new Vector();
+        try {
+            ct = dbUtil.getCon();
+            ResultSet rs = BookDao.list(ct, book);
+            while (rs.next()) {
+                Vector v = new Vector();
                 v.add(rs.getString(1));
                 v.add(rs.getString(2));
                 v.add(rs.getString(3));
@@ -95,19 +88,18 @@ public class BookEnquiry extends JFrame {
                 }
                 dtm.addRow(v);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 dbUtil.closeCon(ct);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
     }
+
     public static void main(String[] args) {
-        new BookEnquiry();
+        new BookDelete();
     }
 }
-

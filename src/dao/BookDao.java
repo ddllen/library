@@ -28,4 +28,19 @@ public class BookDao {
         PreparedStatement pstmt = con.prepareStatement(sb.toString().replaceFirst("and","where"));
         return pstmt.executeQuery();
     }
+    public int delete(Connection con,String name)throws Exception{
+        String sql="delete from t_book where name=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,name);
+        return pstmt.executeUpdate();
+    }
+
+    public int update(Connection con,Book book)throws Exception {
+        String sql="update t_book where author=?,press=?,state=? where name=>?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,book.getAuthor());
+        pstmt.setString(2, book.getPress());
+        pstmt.setBoolean(3,book.getState());
+        return pstmt.executeUpdate();
+    }
 }
