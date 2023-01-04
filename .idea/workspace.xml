@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="null">
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipDelete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/AddVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/AddVip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/VipEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipEnquiry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/VipDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/VipDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +58,7 @@
       <recent name="D:\library\jdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.BorrowReturnBook">
+  <component name="RunManager" selected="应用程序.Run">
     <configuration name="AddVip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Library.vipmanage.AddVip" />
       <module name="library" />
@@ -139,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.BorrowReturnBook" />
         <item itemvalue="应用程序.Run" />
+        <item itemvalue="应用程序.BorrowReturnBook" />
         <item itemvalue="应用程序.AddVip" />
         <item itemvalue="应用程序.VipDelete" />
         <item itemvalue="应用程序.BookDelete" />
@@ -219,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672797642036</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="null">
+      <created>1672814338545</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672814338545</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,5 +231,15 @@
     <MESSAGE value="first" />
     <MESSAGE value="null" />
     <option name="LAST_COMMIT_MESSAGE" value="null" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

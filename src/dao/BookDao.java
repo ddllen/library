@@ -9,12 +9,13 @@ import java.sql.ResultSet;
 
 public class BookDao {
     public int add(Connection con, Book book)throws Exception{
-        String sql="insert into t_book values(null,?,?,?,?)";
+        String sql="insert into t_book values(null,?,?,?,?,?)";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1, book.getName());
         pstmt.setString(2, book.getAuthor());
         pstmt.setString(3, book.getPress());
         pstmt.setBoolean(4,true);
+        pstmt.setString(5,"无人借走");
         return pstmt.executeUpdate();
     }
     public static ResultSet list(Connection con, Book book)throws Exception{
@@ -58,19 +59,19 @@ public class BookDao {
         con.prepareStatement(sql3).executeUpdate();
         return a;
     }
-    public static int lend(Connection con, Book book)throws Exception{
-        String sql="update t_book set who=?,state=?where name=?";
+    public static int Lend(Connection con, Book book)throws Exception{
+        String sql="update t_book set who=?,state=? where name=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1, book.getWho());
         pstmt.setBoolean(2, book.getState());
         pstmt.setString(3, book.getName());
         return pstmt.executeUpdate();
     }
-    public static int borrow(Connection con, Book book)throws Exception{
-        String sql="update t_book set who=?,state=?where name=?";
+    public static int Return(Connection con, Book book)throws Exception{
+        String sql="update t_book set who=?,state=? where name=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1, book.getWho());
-        pstmt.setBoolean(2, book.getState());
+        pstmt.setString(1, "无人借走");
+        pstmt.setBoolean(2, true);
         pstmt.setString(3, book.getName());
         return pstmt.executeUpdate();
     }
