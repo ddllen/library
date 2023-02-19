@@ -28,8 +28,8 @@ public class operateBook extends JFrame {
                     case "添加图书":new AddBook();break;
                     case "删除图书和修改图书":new BookDelete();break;
                     case "浏览图书和查询图书":new BookEnquiry();break;
-                    case "图书排序":;break;
-                    case "插入图书":;break;
+                    case "图书排序":new BookSort();break;
+                    case "插入图书":new InsertBook();break;
                 }
                 dispose();
             }

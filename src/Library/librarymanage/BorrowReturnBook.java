@@ -36,6 +36,7 @@ public class BorrowReturnBook extends JFrame {
         DefaultTableModel model = new DefaultTableModel();
         DefaultTableModel model1=new DefaultTableModel();
         Vector columnNames =new Vector();
+        columnNames.add("ISBN");
         columnNames.add("书名");
         columnNames.add("作者");
         columnNames.add("出版社");
@@ -91,16 +92,16 @@ public class BorrowReturnBook extends JFrame {
                 Book book=new Book();
                 book.setName(jTextField.getText());
                 book.setWho(Name);
-                book.setState(false);
+                book.setState("已借出");
                 try {
                     ct=dbUtil.getCon();
                     ResultSet rs=BookDao.list(ct,new Book());
                     while(rs.next()) {
                         if (rs.getString("name").equals(jTextField.getText())) {
-                            if(rs.getBoolean("state"))BookDao.Lend(ct, book);
+                            if(rs.getString("state").equals("未借出"))BookDao.Lend(ct, book);
                         }
                         if(rs.getString("name").equals(jTextField.getText())){
-                            if(!rs.getBoolean("state"))JOptionPane.showMessageDialog(null,"该书已被借出");
+                            if(rs.getString("state").equals("已借出"))JOptionPane.showMessageDialog(null,"该书已被借出");
                         }
                     }
                 } catch (Exception e) {
@@ -120,16 +121,16 @@ public class BorrowReturnBook extends JFrame {
             public void actionPerformed(ActionEvent evt) {
                 Book book=new Book();
                 book.setName(jTextField.getText());
-                book.setState(false);
+                book.setState("已借出");
                 try {
                     ct=dbUtil.getCon();
                     ResultSet rs=BookDao.list(ct,new Book());
                     while(rs.next()) {
                         if (rs.getString("name").equals(jTextField.getText())) {
-                            if(!rs.getBoolean("state"))BookDao.Return(ct, book);
+                            if(rs.getString("state").equals("已借出"))BookDao.Return(ct, book);
                         }
                         if(rs.getString("name").equals(jTextField.getText())){
-                            if(rs.getBoolean("state")){
+                            if(rs.getString("state").equals("未借出")){
                             JOptionPane.showMessageDialog(null,"该书未被借出");
                         }}
                     }
@@ -164,9 +165,9 @@ public class BorrowReturnBook extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row=jt.getSelectedRow();
-                jTextField.setText((String) jt.getValueAt(row,0));
-                jTextField1.setText((String) jt.getValueAt(row,1));
-                jTextField2.setText((String) jt.getValueAt(row,2));
+                jTextField.setText((String) jt.getValueAt(row,1));
+                jTextField1.setText((String) jt.getValueAt(row,2));
+                jTextField2.setText((String) jt.getValueAt(row,3));
             }
         });
         jt1.addFocusListener(new FocusAdapter() {
@@ -179,9 +180,9 @@ public class BorrowReturnBook extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row=jt1.getSelectedRow();
-                jTextField.setText((String) jt1.getValueAt(row,0));
-                jTextField1.setText((String) jt1.getValueAt(row,1));
-                jTextField2.setText((String) jt1.getValueAt(row,2));
+                jTextField.setText((String) jt1.getValueAt(row,1));
+                jTextField1.setText((String) jt1.getValueAt(row,2));
+                jTextField2.setText((String) jt1.getValueAt(row,3));
             }
         });
         fillTable(new Book());
@@ -199,17 +200,19 @@ public class BorrowReturnBook extends JFrame {
             ct= dbUtil.getCon();
             ResultSet rs= BookDao.list(ct,book);
             while(rs.next()){
-                if(rs.getBoolean("state"))
+                if(rs.getString("state").equals("未借出"))
                 {
                     Vector v=new Vector();
-                    v.add(rs.getString(2));
-                    v.add(rs.getString(3));
-                    v.add(rs.getString(4));
+                    v.add(rs.getString("ISBN"));
+                    v.add(rs.getString("name"));
+                    v.add(rs.getString("author"));
+                    v.add(rs.getString("press"));
                     dtm.addRow(v);
                 }
                 else{
                     if(rs.getString("who").equals(Name)) {
                         Vector v = new Vector();
+                        v.add(rs.getString("ISBN"));
                         v.add(rs.getString("name"));
                         v.add(rs.getString("author"));
                         v.add(rs.getString("press"));
@@ -226,9 +229,5 @@ public class BorrowReturnBook extends JFrame {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new BorrowReturnBook();
     }
 }

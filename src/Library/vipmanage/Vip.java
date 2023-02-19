@@ -1,14 +1,14 @@
 package Library.vipmanage;
 
 public class Vip {
-    private int id;
+    private double id;
     private String userName;
     private String sex;
     private String password;
 
-    public Vip(String userName, String password) {
+    public Vip(String userName, String sex) {
         this.userName = userName;
-        this.password = password;
+        this.sex=sex;
     }
 
     public Vip(String userName, String sex, String password) {
@@ -28,11 +28,11 @@ public class Vip {
 
     }
 
-    public int getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(double id) {
         this.id = id;
     }
 

@@ -42,7 +42,7 @@ public class BookDelete extends JFrame {
         });
         DefaultTableModel model = new DefaultTableModel();
         Vector columnNames =new Vector();
-        columnNames.add("编号");
+        columnNames.add("ISBN");
         columnNames.add("书名");
         columnNames.add("作者");
         columnNames.add("出版社");
@@ -66,7 +66,7 @@ public class BookDelete extends JFrame {
             }
         });
         container.add(jsp);
-        JLabel jLabel1 = new JLabel("编号:");
+        JLabel jLabel1 = new JLabel("ISBN:");
         JLabel jLabel2 = new JLabel("图书名称:");
         JLabel jLabel3 = new JLabel("作者:");
         JLabel jLabel4 = new JLabel("出版社:");
@@ -89,15 +89,15 @@ public class BookDelete extends JFrame {
         jButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                String num=jTextField1.getText();
+                String ISBN=jTextField1.getText();
                 String name=jTextField2.getText();
                 String author=jTextField3.getText();
                 String press=jTextField4.getText();
-                if(StringUtil.isEmpty(num)){
+                if(StringUtil.isEmpty(ISBN)){
                     JOptionPane.showMessageDialog(null,"请选择你要修改的图书");
                 }
                 Book book = new Book();
-                book.setNum(Integer.parseInt(num));
+                book.setISBN(ISBN);
                 book.setName(name);
                 book.setAuthor(author);
                 book.setPress(press);
@@ -173,17 +173,11 @@ public class BookDelete extends JFrame {
             ResultSet rs = BookDao.list(ct, book);
             while (rs.next()) {
                 Vector v = new Vector();
-                v.add(rs.getString(1));
-                v.add(rs.getString(2));
-                v.add(rs.getString(3));
-                v.add(rs.getString(4));
-                if(rs.getString(5).equals("1"))
-                {
-                    v.add("未借出");
-                }
-                else{
-                    v.add("已借出");
-                }
+                v.add(rs.getString("ISBN"));
+                v.add(rs.getString("name"));
+                v.add(rs.getString("author"));
+                v.add(rs.getString("press"));
+                v.add(rs.getString("state"));
                 dtm.addRow(v);
             }
         } catch (Exception e) {

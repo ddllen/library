@@ -30,8 +30,8 @@ public class operateVip extends JFrame {
                     case "添加会员":new AddVip();break;
                     case "删除会员":new VipDelete();break;
                     case "浏览会员和查询会员":new VipEnquiry();break;
-                    case "会员排序":;break;
-                    case "插入会员":;break;
+                    case "会员排序":new VipSort();break;
+                    case "插入会员":new InsertVip();break;
                 }
                 dispose();
             }
@@ -40,7 +40,7 @@ public class operateVip extends JFrame {
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MainMenu();
+                new VipMenu();
                 dispose();
             }
         });

@@ -47,7 +47,7 @@ public class BookEnquiry extends JFrame {
         this.add(jButton);
         DefaultTableModel model = new DefaultTableModel();
         Vector columnNames =new Vector();
-        columnNames.add("编号");
+        columnNames.add("ISBN");
         columnNames.add("书名");
         columnNames.add("作者");
         columnNames.add("出版社");
@@ -82,17 +82,11 @@ public class BookEnquiry extends JFrame {
             ResultSet rs=BookDao.list(ct,book);
             while(rs.next()){
                 Vector v=new Vector();
-                v.add(rs.getString(1));
                 v.add(rs.getString(2));
                 v.add(rs.getString(3));
                 v.add(rs.getString(4));
-                if(rs.getString(5).equals("1"))
-                {
-                    v.add("未借出");
-                }
-                else{
-                    v.add("已借出");
-                }
+                v.add(rs.getString(5));
+                v.add(rs.getString(6));
                 dtm.addRow(v);
             }
         }catch (Exception e){

@@ -5,15 +5,25 @@ import util.DbUtil;
 import util.StringUtil;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.Vector;
 
-public class AddBook extends JFrame {
+public class InsertBook extends JFrame {
+    DefaultTableModel dtm;
+    JTable jt;
+    Connection ct;
     DbUtil dbUtil=new DbUtil();
-    BookDao bd=new BookDao();
-    public AddBook(){
+    BookDao bookDao=new BookDao();
+    double num;
+    public InsertBook(){
         Container container = this.getContentPane();
         this.setLayout(new BorderLayout());
         JPanel jPanel = new JPanel();
@@ -22,6 +32,7 @@ public class AddBook extends JFrame {
         JLabel jLabel1 = new JLabel("书名:");
         JLabel jLabel2= new JLabel("作者:");
         JLabel jLabel3 = new JLabel("出版社:");
+        JLabel jLabel4 = new JLabel("说明:选中某行后，将会在某行后面添加图书");
         JTextField jTextField = new JTextField(10);
         JTextField jTextField1 = new JTextField(10);
         JTextField jTextField2 = new JTextField(10);
@@ -38,14 +49,58 @@ public class AddBook extends JFrame {
         jPanel1.add(jb3);
         JPanel jPanel2 = new JPanel();
         jPanel2.setLayout(new BorderLayout());
-        container.add(jPanel2,BorderLayout.NORTH);
+        DefaultTableModel model = new DefaultTableModel();
+        Vector columnNames =new Vector();
+        columnNames.add("ISBN");
+        columnNames.add("书名");
+        columnNames.add("作者");
+        columnNames.add("出版社");
+        columnNames.add("状态");
+        jt=new JTable(model){
+            public boolean isCellEditable(int row,int column){
+                return false;
+            }
+        };
+        JScrollPane jsp=new JScrollPane(jt);
+        Vector data=new Vector();
+        model.setDataVector(data,columnNames);
+        fillTable(new Book());
+        container.add(jLabel4);
+        JPanel jPanel3 = new JPanel();
+        jPanel3.setLayout(new BorderLayout());
+        jPanel3.add(jLabel4,BorderLayout.NORTH);
+        jPanel3.add(jsp,BorderLayout.CENTER);
+        container.add(jPanel3,BorderLayout.NORTH);
         container.add(jPanel,BorderLayout.CENTER);
         container.add(jPanel1,BorderLayout.SOUTH);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jt.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent evt) {
+                int row=jt.getSelectedRow();
+                try {
+                    ct=dbUtil.getCon();
+                    ResultSet rs=BookDao.list(ct,new Book());
+                    while(rs.next()){
+                        if(rs.getString("name").equals(jt.getValueAt(row,1))){
+                            num=rs.getInt("num");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }finally {
+                    try {
+                        dbUtil.closeCon(ct);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
         jb1.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent evt) {
                 String ISBN = jTextField.getText();
                 String name = jTextField1.getText();
                 String author = jTextField2.getText();
@@ -56,25 +111,26 @@ public class AddBook extends JFrame {
                 else {
                     Book book = new Book(name,author,press);
                     book.setISBN(ISBN);
+                    book.setNum(num+0.1);
                     jTextField.setText(null);
                     jTextField1.setText(null);
                     jTextField2.setText(null);
                     jTextField3.setText(null);
-                    Connection con=null;
                     try {
-                        con= dbUtil.getCon();
-                        int addNum=bd.add(con,book);
+                        ct= dbUtil.getCon();
+                        int addNum=bookDao.incert(ct,book);
                         if(addNum==1){
                             JOptionPane.showMessageDialog(null,"图书添加成功");
                         }
                         else{
                             JOptionPane.showMessageDialog(null,"图书添加失败");
                         }
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+                        fillTable(new Book());
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
                     }finally {
                         try {
-                            dbUtil.closeCon(con);
+                            dbUtil.closeCon(ct);
                         } catch (Exception ex) {
                             throw new RuntimeException(ex);
                         }
@@ -97,7 +153,32 @@ public class AddBook extends JFrame {
                 jTextField3.setText(null);
             }
         });
-        this.setLocation(700,600);
+        this.setLocation(700,300);
         this.pack();
+    }
+    private void fillTable(Book book){
+        dtm= (DefaultTableModel) jt.getModel();
+        dtm.setRowCount(0);
+        try{
+            ct= dbUtil.getCon();
+            ResultSet rs=BookDao.list(ct,book);
+            while(rs.next()){
+                Vector v=new Vector();
+                v.add(rs.getString(2));
+                v.add(rs.getString(3));
+                v.add(rs.getString(4));
+                v.add(rs.getString(5));
+                v.add(rs.getString(6));
+                dtm.addRow(v);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                dbUtil.closeCon(ct);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="fdf9a874-1d20-4fe1-9538-d742c62d8d29">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
+      <console name="Connection" type="STANDARD" schema="db_book" session="Main"><![CDATA[LOAD DATA LOCAL INFILE 'D:\\library\\src\\output.txt' INTO TABLE t_book(ISBN,NAME,author,press,state,who);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -519,5 +519,8 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
   </component>
 </project>
