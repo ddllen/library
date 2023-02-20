@@ -44,7 +44,7 @@ public class VipMenu extends JFrame {
                     };break;
                     case "从文件中导入会员信息":
                         try {
-                            VipWriteToDat("D:\\library\\src\\Book-output.txt");
+                            VipWriteToDat();
                         } catch (Exception ex) {
                             throw new RuntimeException(ex);
                         }
@@ -95,8 +95,8 @@ public class VipMenu extends JFrame {
             }
         }
     }
-    public static void VipWriteToDat(String path) throws Exception {
-        File file = new File(path);
+    public static void VipWriteToDat() throws Exception {
+        File file = new File("D:\\library\\src\\Vip-output.txt");
         if(!file.exists()){
             file.createNewFile();
         }

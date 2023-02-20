@@ -103,7 +103,7 @@ public class VipDelete extends JFrame {
                 Connection con=null;
                 try{
                     con=dbUtil.getCon();
-                    int modifyNum= VipDao.delete(con, Integer.parseInt(num));
+                    int modifyNum= VipDao.delete(con, Double.parseDouble(num));
                     if(modifyNum==1){
                         JOptionPane.showMessageDialog(null,"删除成功");
                     }

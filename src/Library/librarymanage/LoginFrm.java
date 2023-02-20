@@ -34,11 +34,13 @@ public class LoginFrm extends JFrame {
                         JOptionPane.showMessageDialog(null, "密码不能为空");
                         return;
                     }
-                    Vip vip = new Vip(username, password);
+                    Vip vip = new Vip();
+                    vip.setUserName(username);
+                    vip.setPassword(password);
                     Connection con = null;
                     try {
                         con = dbUtil.getCon();
-                        Vip currentVip = vd.login(con, vip);
+                        Vip currentVip = vd.login(con,vip);
                         if (currentVip != null) {
                             JOptionPane.showMessageDialog(null, "登陆成功");
                             BorrowReturnBook br=new BorrowReturnBook();

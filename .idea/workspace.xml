@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd548cc-6642-4ac7-8a52-5f58e57849cd" name="变更" comment="null">
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library/librarymanage/InsertBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library/vipmanage/InsertVip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/AddBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookDelete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BookEnquiry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/BorrowReturnBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LibraryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/operateBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/Vip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book-output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book-output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/librarymanage/LoginFrm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/VipDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipDelete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/VipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/VipMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library/vipmanage/operateVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vip-output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vip-output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/VipDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/VipDao.java" afterDir="false" />
     </list>
@@ -236,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672824118966</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="null">
+      <created>1676820663890</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1676820663890</updated>
+    </task>
+    <task id="LOCAL-00014" summary="null">
+      <created>1676820682753</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1676820682753</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

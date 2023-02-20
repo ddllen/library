@@ -29,7 +29,6 @@ public class BookDao {
     public int incert(Connection con, Book book)throws Exception{
         double num=0;
         String sql="insert into t_book values(?,?,?,?,?,?,?)";
-        String sql123="select * from t_book where ISBN=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setDouble(1,book.getNum());
         pstmt.setString(2, book.getISBN());
@@ -107,7 +106,7 @@ public class BookDao {
     public static void sort(Connection con,String a)throws Exception{
         String sql="create table t_book_copy as select * from t_book order by "+a;
         String sql1="alter table t_book_copy drop num";
-        String sql2="alter table t_book_copy add num double(11) not null auto_increment primary key first";
+        String sql2="alter table t_book_copy add num double not null auto_increment primary key first";
         String sql3="drop table t_book";
         String sql4="alter table t_book_copy rename to t_book";
         con.prepareStatement(sql).executeUpdate();

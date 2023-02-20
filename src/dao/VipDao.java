@@ -21,12 +21,12 @@ public class VipDao {
         Vip resultVip=null;
         String sql="select * from t_vip where username=? and password=?";
         PreparedStatement pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, vip.getUserName());
+        pstmt.setString(1,vip.getUserName());
         pstmt.setString(2,vip.getPassword());
         ResultSet rs=pstmt.executeQuery();
         if(rs.next()){
             resultVip=new Vip();
-            resultVip.setId(rs.getInt("id"));
+            resultVip.setId(rs.getDouble("id"));
             resultVip.setUserName(rs.getString("username"));
             resultVip.setPassword(rs.getString("password"));
             resultVip.setSex(rs.getString("sex"));
@@ -44,13 +44,13 @@ public class VipDao {
         PreparedStatement pstmt = con.prepareStatement(sb.toString().replaceFirst("and","where"));
         return pstmt.executeQuery();
     }
-    public static int delete(Connection con, int id)throws Exception{
+    public static int delete(Connection con, double id)throws Exception{
         String sql="delete from t_vip where id=?";
         String sql1="SET @auto_id = 0";
         String sql2="UPDATE t_vip SET id = (@auto_id :=@auto_id + 1)";
         String sql3="ALTER TABLE t_vip AUTO_INCREMENT = 1";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,id);
+        pstmt.setDouble(1,id);
         int a=pstmt.executeUpdate();
         con.prepareStatement(sql1).executeUpdate();
         con.prepareStatement(sql2).executeUpdate();
@@ -75,7 +75,7 @@ public class VipDao {
     public static void sort(Connection con,String a)throws Exception{
         String sql="create table t_vip_copy as select * from t_vip order by "+a;
         String sql1="alter table t_vip_copy drop id";
-        String sql2="alter table t_vip_copy add id int(11) not null auto_increment primary key first";
+        String sql2="alter table t_vip_copy add id double not null auto_increment primary key first";
         String sql3="drop table t_vip";
         String sql4="alter table t_vip_copy rename to t_vip";
         con.prepareStatement(sql).executeUpdate();
@@ -87,9 +87,6 @@ public class VipDao {
     public int incert(Connection con, Vip vip)throws Exception{
         double id=0;
         String sql="insert into t_vip values(?,?,?,?)";
-        String sql123="select * from t_vip where username=?";
-        PreparedStatement pstme1=con.prepareStatement(sql123);
-        pstme1.setString(1,vip.getUserName());
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setDouble(1,vip.getId());
         pstmt.setString(2,vip.getUserName());
@@ -102,7 +99,7 @@ public class VipDao {
         while(rs.next()){
             id=rs.getDouble("id");
         }
-        String sql1="SET @auto_num = "+id;
+        String sql1="SET @auto_id = "+id;
         con.prepareStatement(sql1).executeUpdate();
         con.prepareStatement(sql2).executeUpdate();
         return a;
